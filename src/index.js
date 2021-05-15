@@ -4,19 +4,30 @@ import ReactDOM from 'react-dom'
 
 const name = "React"
 
-/* Los componentes siempre tienen que comenzar con mayúscula
-Y deben retornar un nodo */
-const TarjetaFruta = (props) => {
-  //return <div>Hey!</div>
-  console.log(props);
-  return (
-    <div>
-      <h3> {props.name} </h3>
-      <hr />
-      <p> $ {props.price} </p>
-    </div>
-  )
+class TarjetaFruta extends React.Component {
+  constructor(){
+    super()
+    this.state = {
+      cantidad: 50
+    }
   }
+
+  render(){
+    return(
+      <div>
+        <h3> {this.props.name} </h3>
+        <hr />
+        <div>Cantidad: { this.state.cantidad } </div>
+        <button 
+          onClick={ ()=>{
+             this.setState({ cantidad: this.state.cantidad + 1 }); 
+             } }>Agregar</button>
+        <p> $ {this.props.price} </p>
+      </div>
+    )
+  }
+}
+
 
 /* let frutaExotica = "Fruta del Dragon";
 
@@ -30,7 +41,7 @@ const App = () => (
 
 const App = () => (
   <div>
-    <TarjetaFruta name = "Sandia" price = { 2.00 } />
+    <TarjetaFruta name = "Sandia" price = { 5.00 } />
     <TarjetaFruta name = "Naranja" price = { 1.50 } />
     <TarjetaFruta name = "Kiwi" price = { 3.30 } />
   </div>
