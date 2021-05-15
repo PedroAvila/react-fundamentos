@@ -6,19 +6,33 @@ const name = "React"
 
 /* Los componentes siempre tienen que comenzar con mayúscula
 Y deben retornar un nodo */
-const TarjetaFruta = () => (
+const TarjetaFruta = (props) => {
   //return <div>Hey!</div>
-  <div>
-      <h3>Titulo</h3>
+  console.log(props);
+  return (
+    <div>
+      <h3> {props.name} </h3>
       <hr />
-      <p>Descripción ....</p>
+      <p> $ {props.price} </p>
     </div>
-)
+  )
+  }
+
+/* let frutaExotica = "Fruta del Dragon";
 
 const App = () => (
   <div>
-    <TarjetaFruta />
-    <TarjetaFruta></TarjetaFruta>
+    <TarjetaFruta name = "Sandia" price = { 2.00 } />
+    <TarjetaFruta name = "Naranja" price = { 1.50 } />
+    <TarjetaFruta name = { `${ frutaExotica }` } price = { 3.30 } />
+  </div>
+) */
+
+const App = () => (
+  <div>
+    <TarjetaFruta name = "Sandia" price = { 2.00 } />
+    <TarjetaFruta name = "Naranja" price = { 1.50 } />
+    <TarjetaFruta name = "Kiwi" price = { 3.30 } />
   </div>
 )
 
